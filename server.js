@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 const path = require('path');
-const fileToPath = path.join(__dirname,'server.js')
+const fileToPath = path.join(__dirname,'db.json')
 const data = JSON.parse(fs.readFileSync(fileToPath, 'utf-8'));
 const products = data;
 
