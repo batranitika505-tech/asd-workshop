@@ -5,11 +5,16 @@ const path = require('path');
 const fileToPath = path.join(__dirname,'db.json')
 const data = JSON.parse(fs.readFileSync(fileToPath, 'utf-8'));
 const products = data;
-
-app.get("/products",(req,res) => {
-    res.json(products)
+const delay = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+app.get("/products",async (req,res) => {
+    await delay(1500);
+    res.json(products);
+    
 })
-app.get("/products/:id",(req,res) => {
+app.get("/products/:id",async (req,res) => {
+    await delay(1500);
     const id = Number(req.params.id)
     const find = products.find((x) => x.id == id)
     if(!find){
@@ -22,3 +27,10 @@ app.get("/products/:id",(req,res) => {
 app.listen(3000, () => {
     console.log("Server running on port 3000")
 })
+
+
+
+
+
+
+
