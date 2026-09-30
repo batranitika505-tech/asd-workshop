@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const fileToPath = path.join(__dirname,'server.js')
 const data = JSON.parse(fs.readFileSync(fileToPath, 'utf-8'));
-const products = data.products;
+const products = data;
 
 app.get("/products",(req,res) => {
     res.json(products)
